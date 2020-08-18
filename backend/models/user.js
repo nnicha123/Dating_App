@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('normal', 'starred')
     }
   })
+
   User.associate = models => {
     User.belongsToMany(models.user, {
       through: models.relates_to,
@@ -55,16 +56,19 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "receiver_id"
     })
 
-    User.belongsToMany(models.user, {
-      through: models.invite,
-      as: "inviter",
-      foreignKey: "inviter_id"
-    })
-    User.belongsToMany(models.user, {
-      through: models.invite,
-      as: "invitee",
-      foreignKey: "invitee_id"
-    })
+    // User.belongsToMany(models.user, {
+    //   through: models.invite,
+    //   as: "inviter",
+    //   foreignKey: "inviter_id"
+    // })
+    // User.belongsToMany(models.user, {
+    //   through: models.invite,
+    //   as: "invitee",
+    //   foreignKey: "invitee_id"
+    // })
+    User.belongsToMany(models.location, { through: models.feedback, foreignKey: 'user_id' })
+    User.hasMany(models.invite, { foreignKey: 'receives_invite' })
+    User.hasMany(models.invite, { foreignKey: 'sends_invite' })
   }
 
   return User;

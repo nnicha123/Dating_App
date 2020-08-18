@@ -1,9 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
   const Venue = sequelize.define('venue', {
-    relation: {
-      type: DataTypes.ENUM('match', 'likes_you', 'you_like', 'none')
+    category: {
+      type: DataTypes.STRING(400)
     }
   })
-
+  Venue.associate = models => {
+    Venue.belongsTo(models.date_choice, { foreignKey: 'date_choice_id' })
+    Venue.hasMany(models.location, { foreignKey: 'venue_id' })
+  }
   return Venue;
 }

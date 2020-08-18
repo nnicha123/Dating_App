@@ -10,6 +10,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(400)
     }
   })
+  Invite.associate = models => {
+    Invite.belongsTo(models.location, { foreignKey: 'location_id' })
+    Invite.belongsTo(models.user, { foreignKey: 'receives_invite' })
+    Invite.belongsTo(models.user, { foreignKey: 'sends_invite' })
+  }
 
   return Invite;
 }
