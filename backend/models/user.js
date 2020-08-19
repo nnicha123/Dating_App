@@ -30,6 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     user_type: {
       type: DataTypes.ENUM('normal', 'starred')
+    },
+    role:{
+      type:DataTypes.ENUM('user','admin')
     }
   })
 

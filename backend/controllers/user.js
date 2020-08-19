@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
   } else {
     const salt = bcrypt.genSaltSync(10)
     const hashedPassword = bcrypt.hashSync(password, salt)
-    const newUser = await db.user.create({ username, password: hashedPassword, email, first_name, last_name, profile_pic, cover_pic, about_me, total_hearts, user_type: 'normal' })
+    const newUser = await db.user.create({ username, password: hashedPassword, email, first_name, last_name, profile_pic, cover_pic, about_me, total_hearts, user_type: 'normal', role: 'user' })
     res.status(201).send(newUser)
   }
 }
@@ -52,12 +52,12 @@ const loginUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-  const { username, password, email, first_name, last_name, profile_pic, cover_pic, about_me, total_hearts, user_type } = req.body
+  const { username, password, email, first_name, last_name, profile_pic, cover_pic, about_me, total_hearts, user_type, role } = req.body
   const targetUser = await db.user.findOne({ where: { id: req.params.id } })
   if (!targetUser) {
     res.status(400).send({ message: 'Cannot find target user' })
   } else {
-    await targetUser.update({ username, password, email, first_name, last_name, profile_pic, cover_pic, about_me, total_hearts, user_type })
+    await targetUser.update({ username, password, email, first_name, last_name, profile_pic, cover_pic, about_me, total_hearts, user_type, role })
     res.status(204).send({ message: 'Successfully updated' })
   }
 }
