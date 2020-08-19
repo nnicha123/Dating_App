@@ -1,0 +1,62 @@
+.outerLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  font-family: sans-serif;
+  color: rgb(148, 141, 141);
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1),
+      rgba(156, 115, 125, 0.8)
+    ),
+    url(./../../everest.jpg);
+  background-size: cover;
+}
+.form {
+  height: 350px;
+  width: 350px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  border-radius: 20px;
+  border: 10px solid #54142c;
+  background-color: rgb(255, 255, 255);
+}
+.form h1 {
+  margin: 30px;
+}
+.form-group {
+  margin-bottom: 20px;
+  /* margin-top: 20px; */
+}
+.form-group input {
+  width: 250px;
+  height: 25px;
+  background-color: #916072;
+  border: none;
+  color: white;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: white;
+  font-family: sans-serif;
+}
+.form-group textarea {
+  width: 260px;
+  background-color: #916072;
+  border: none;
+}
+.loginButton {
+  background-color: #54142c;
+  color: #eeeeee;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+.contact-group {
+  text-align: center;
+}

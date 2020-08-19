@@ -1,0 +1,12 @@
+<nav>
+  <a>Logo</a>
+  <a [ngClass]="{'setDim':activeTag[0]}" (click)="activeTag = [true,false,false]">Login</a>
+  <a [ngClass]="{'setDim':activeTag[1]}" (click)="activeTag = [false,true,false]">Register</a>
+  <a [ngClass]="{'setDim':activeTag[2]}" (click)="activeTag = [false,false,true]">Contact Us</a>
+</nav>
+
+<app-login *ngIf="activeTag[0]"></app-login>
+<app-register *ngIf="activeTag[1]"></app-register>
+<app-contact-us *ngIf="activeTag[2]"></app-contact-us>
+
+<app-footer></app-footer>

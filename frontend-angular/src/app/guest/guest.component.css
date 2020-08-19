@@ -1,0 +1,17 @@
+nav {
+  background-color: #54142c;
+  color: #eeeeee;
+  display: flex;
+}
+nav a {
+  padding: 20px 25px;
+  text-decoration: none;
+  color: white;
+}
+nav a:hover {
+  background-color: #835a69;
+  cursor: pointer;
+}
+.setDim {
+  background-color: #835a69;
+}
