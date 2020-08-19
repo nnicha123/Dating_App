@@ -1,5 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Location = sequelize.define('location', {
+    name: {
+      type: DataTypes.STRING(400)
+    },
     image: {
       type: DataTypes.STRING(400)
     },

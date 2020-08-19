@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   })
   Venue.associate = models => {
-    Venue.belongsTo(models.date_choice, { foreignKey: 'date_choice_id' })
     Venue.hasMany(models.location, { foreignKey: 'venue_id' })
   }
   return Venue;
