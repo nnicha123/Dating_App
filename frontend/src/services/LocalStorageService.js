@@ -26,7 +26,6 @@ export default {
   setToken: _setToken,
   getToken: _getToken,
   removeToken: _removeToken,
-  getRole: _getRole,
   setRole: _setRole,
   getUserRole: _getUserRole,
   removeRole: _removeRole,

@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import PrivateRoutes from './components/private_routes/PrivateRoutes';
+import LocalStorageService from './services/LocalStorageService'
 
 function App() {
+
+  const [role, setRole] = useState(LocalStorageService.getUserRole());
+  // console.log(role)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ height: "100vh", margin: 0 }}>
+      <PrivateRoutes role={role} setRole={setRole} />
     </div>
   );
 }
