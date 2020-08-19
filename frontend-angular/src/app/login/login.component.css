@@ -13,6 +13,19 @@
     url(./../../everest.jpg);
   background-size: cover;
 }
+.dripEffect1 {
+  background-color: #54142c;
+  display: inline-block;
+  /* width: 30px; */
+  height: 150px;
+  width: 60px;
+  position: absolute;
+  top: 60px;
+  left: -10px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
 .form {
   height: 350px;
   width: 350px;
