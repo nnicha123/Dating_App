@@ -1,0 +1,29 @@
+* {
+  font-family: sans-serif;
+}
+nav {
+  background-color: #54142c;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  z-index: 10;
+}
+svg {
+  position: absolute;
+  top: 55px;
+  left: -10px;
+  z-index: 1;
+}
+
+nav a {
+  padding: 20px 25px;
+  text-decoration: none;
+  color: white;
+}
+nav a:hover {
+  background-color: #835a69;
+  cursor: pointer;
+}

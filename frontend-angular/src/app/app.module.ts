@@ -10,6 +10,12 @@ import { RegisterFailComponent } from './register-fail/register-fail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GuestComponent } from './guest/guest.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarUserComponent } from './navbar-user/navbar-user.component';
+import { SuperUsersComponent } from './super-users/super-users.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { MatchesComponent } from './matches/matches.component';
+import { LikesComponent } from './likes/likes.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,12 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     GuestComponent,
     FooterComponent,
+    HomeComponent,
+    NavbarUserComponent,
+    SuperUsersComponent,
+    MyProfileComponent,
+    MatchesComponent,
+    LikesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
