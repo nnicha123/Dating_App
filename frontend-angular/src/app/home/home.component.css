@@ -1,7 +1,8 @@
 .outerLogin {
   padding: 50px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   min-height: 85vh;
   height: max-content;
@@ -14,6 +15,9 @@
     ),
     url(./../../everest.jpg);
   background-size: cover;
+}
+.heading {
+  width: 80%;
 }
 .personDiv {
   display: grid;

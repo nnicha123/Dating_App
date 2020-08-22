@@ -18,6 +18,21 @@
   height: 300px;
   position: relative;
 }
+.profilePicDiv {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: grey;
+  bottom: 150px;
+  left: 100px;
+  z-index: 20;
+  overflow: hidden;
+}
+.profilePicDiv img {
+  width: 100%;
+  height: 100%;
+}
 .banner:after {
   text-align: center;
   padding: 10px;
