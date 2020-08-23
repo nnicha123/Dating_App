@@ -20,4 +20,7 @@ export class TaskService {
   getAllUsers() {
     return this.webReqService.get('user/');
   }
+  getUserId() {
+    return this.webReqService.get('user/profile');
+  }
 }

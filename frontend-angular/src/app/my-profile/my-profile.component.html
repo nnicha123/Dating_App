@@ -1,12 +1,12 @@
 <app-navbar-user></app-navbar-user>
 <div class="banner">
-  <img src="sunrise.jpg" alt="">
+  <!-- <img src="sunrise.jpg" alt=""> -->
 </div>
 <div class="profilePicDiv">
-  <img src="../../assets/persons/mia.jpg" alt="">
+  <img [src]="profile.profile_pic" alt="">
 </div>
 <div>
-  <h2 class="userName">Mia Thermopolis</h2>
+  <h2 class="userName">{{profile.first_name}} {{profile.last_name}}</h2>
 </div>
 <div class="outerLogin">
   <div class="outerMyImages">
@@ -33,15 +33,16 @@
       <div class="aboutMe">
         <h2>About Me</h2>
         <div class="userType">
-          <p>User Type</p>
+          <p>{{profile.user_type.charAt(0).toUpperCase()+ profile.user_type.slice(1)}} user</p>
           <button style="margin-left: 10px;">Update</button>
         </div>
       </div>
       <div class="aboutBox">
+        <div>{{profile.about_me}}</div>
         <button class="editButton">Edit</button>
       </div>
       <div class="totalHearts">
-        <h3>Total Hearts : 100</h3>
+        <h3>Total Hearts : {{profile.total_hearts}}</h3>
         <div style="display: flex;">
           <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
           <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>

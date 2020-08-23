@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     this.taskService.loginUser(username, password).subscribe((res: any) => {
       console.log(res);
       localStorage.setItem('TOKEN', res.token);
+      this.router.navigate(['my-profile']);
     });
   }
 }

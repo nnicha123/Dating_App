@@ -7,7 +7,7 @@ const getAllUser = async (req, res) => {
   res.status(200).send(allUsers)
 }
 const getUserId = async (req, res) => {
-  const targetUser = await db.user.findOne({ where: { id: req.params.id } })
+  const targetUser = await db.user.findOne({ where: { id: req.user.id } })
   if (!targetUser) {
     res.status(400).send({ message: 'Cannot find target user' })
   } else {

@@ -16,12 +16,7 @@ export class WebRequestService {
   post(uri: string, item: Object) {
     if (localStorage.getItem('TOKEN')) {
       console.log('TOKEN available');
-      return this.http.post(`${this.ROOT_URL}/${uri}`, item, {
-        headers: new HttpHeaders().set(
-          'Authorization',
-          localStorage.getItem('TOKEN')
-        ),
-      });
+      return this.http.post(`${this.ROOT_URL}/${uri}`, item);
     } else {
       return this.http.post(`${this.ROOT_URL}/${uri}`, item);
     }

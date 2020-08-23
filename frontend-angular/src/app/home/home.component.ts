@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.getAllUsers().subscribe((res: any) => {
       this.users = res;
+      console.log(res);
     });
   }
 }
