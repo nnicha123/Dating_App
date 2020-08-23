@@ -9,7 +9,7 @@
     <div class="form-group">
       <input type="password" #passwordInput placeholder="Password" />
     </div>
-    <button class="loginButton">Login</button>
+    <button class="loginButton" (click)="loginUser(usernameInput.value,passwordInput.value)">Login</button>
   </div>
 </div>
 <app-footer></app-footer>

@@ -1,8 +1,24 @@
 <app-navbar-user></app-navbar-user>
-<div class="banner">
-  <img src="sunrise.jpg" alt="">
-</div>
 <div class="outerLogin">
-  <h2>Matches</h2>
+  <div class="heading">
+    <h2>Your Matches</h2>
+  </div>
+  <div class="personDiv">
+    <div class="personCard" *ngFor="let person of matches">
+      <div class="cardTop">
+        <img [src]="person.profile_pic" alt="image">
+      </div>
+      <div class="cardContent">
+        <div class="cardHead">
+          <div class="personTitle"><b>{{person.first_name}}</b></div>
+          <div style="display: flex;align-items: center;">
+            <i class="material-icons" style="font-size: 20px;margin-left: 5px;color:#54142c">favorite</i>
+            <i class="material-icons" style="font-size: 20px;margin-left: 5px;color:#54142c">person</i>
+          </div>
+        </div>
+        <div class="personContent">{{person.about_me.substring(0,20)}}...</div>
+      </div>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

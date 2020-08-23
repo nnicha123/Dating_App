@@ -4,13 +4,14 @@
     <i class="material-icons" style="font-size: 100px;color:#54142c ;">favorite</i>
     <h1 style="margin-top: 0;color:#54142c">Register</h1>
     <div class="form-group">
-      <input type="text" #firstnameInput placeholder="First Name" />
-      <input type="text" #lastnameInput placeholder="Last Name" style="margin-left: 10px" />
+      <input type="text" #firstNameInput placeholder="First Name" />
+      <input type="text" #lastNameInput placeholder="Last Name" style="margin-left: 10px" />
     </div>
     <input type="text" #usernameInput placeholder="Username" />
     <input type="password" #passwordInput placeholder="Password" />
-    <textarea name="" id="" cols="30" rows="5" placeholder="About me"></textarea>
-    <button class="registerButton">Register</button>
+    <textarea name="" id="" cols="30" rows="5" placeholder="About me" #aboutMeInput></textarea>
+    <button class="registerButton"
+      (click)="registerUser(usernameInput.value, passwordInput.value, firstNameInput.value, lastNameInput.value,aboutMeInput.value)">Register</button>
   </div>
 </div>
 <app-footer></app-footer>
