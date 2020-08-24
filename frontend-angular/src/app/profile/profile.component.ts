@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   statusDisplay: string = 'Like';
   comments: object[];
   @Input() receivedUserId: number;
+  totalHearts: number;
   constructor(
     private taskService: TaskService,
     private router: Router,
@@ -39,11 +40,13 @@ export class ProfileComponent implements OnInit {
             }
           });
         });
-        let newCommentData = [];
+        let totalHearts = 0;
         this.taskService.getComments(params.userId).subscribe((res: any) => {
-          newCommentData = res;
-          console.log(res);
           this.comments = res;
+          for (let i = 0; i < res.length; i++) {
+            totalHearts += Number(res[i].no_of_likes);
+          }
+          this.totalHearts = totalHearts;
         });
       }
     });
@@ -52,13 +55,13 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['home']);
   }
   submitFeedback(comment: string, heart: number, targetId: number) {
-    console.log(comment, heart, targetId);
-    this.taskService.getProfile(targetId).subscribe((res: any) => {
+    // console.log(comment, heart, targetId);
+    this.taskService.getUserId().subscribe((res: any) => {
       console.log(res.profile_pic);
       this.taskService
         .addComment(comment, heart, targetId, res.profile_pic)
         .subscribe((res: any) => {
-          // window.location.reload();
+          window.location.reload();
         });
     });
   }

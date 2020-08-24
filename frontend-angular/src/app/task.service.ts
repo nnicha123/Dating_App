@@ -49,10 +49,10 @@ export class TaskService {
     return this.webReqService.get(`relates-to/getRelation/${id}`);
   }
   addComment(comment: string, heart: number, targetId: number, image: string) {
-    console.log(comment, heart, targetId);
+    console.log(comment, heart, targetId, image);
     return this.webReqService.post(`profile-comment/receiver/${targetId}`, {
-      comment: comment,
-      image: image,
+      comment,
+      image,
       no_of_likes: heart,
     });
   }

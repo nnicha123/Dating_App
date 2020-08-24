@@ -1,0 +1,29 @@
+.form {
+  text-align: center;
+  height: 250px;
+  width: 400px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  padding-top: 50px;
+  border-radius: 20px;
+  border: 10px solid #54142c;
+  background-color: rgb(255, 255, 255);
+}
+.form h1 {
+  margin: 30px;
+}
+
+button {
+  background-color: #54142c;
+  color: #eeeeee;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+.contact-group {
+  text-align: center;
+}

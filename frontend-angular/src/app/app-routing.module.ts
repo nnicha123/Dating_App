@@ -11,6 +11,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { MatchesComponent } from './matches/matches.component';
 import { LikesComponent } from './likes/likes.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddLocationComponent } from './add-location/add-location.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'matches', component: MatchesComponent },
   { path: 'likes', component: LikesComponent },
   { path: 'profile/:userId', component: ProfileComponent },
+  { path: 'add-location', component: AddLocationComponent },
 ];
 
 @NgModule({

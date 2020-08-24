@@ -12,6 +12,8 @@ export class MyProfileComponent implements OnInit {
   profilePicChange: boolean;
   editAbout: boolean;
   userId: number;
+  comments: object[];
+  totalHearts: number;
   constructor(private taskService: TaskService, private router: Router) {}
 
   ngOnInit(): void {
@@ -20,6 +22,15 @@ export class MyProfileComponent implements OnInit {
       this.profile = res;
       this.userId = res.id;
       console.log(res.id);
+      let totalHearts = 0;
+      this.taskService.getComments(this.userId).subscribe((res: any) => {
+        console.log(res);
+        this.comments = res;
+        for (let i = 0; i < res.length; i++) {
+          totalHearts += Number(res[i].no_of_likes);
+        }
+        this.totalHearts = totalHearts;
+      });
     });
     this.profilePicChange = false;
     this.editAbout = false;

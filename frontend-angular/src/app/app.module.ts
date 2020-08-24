@@ -20,6 +20,11 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { MatchesComponent } from './matches/matches.component';
 import { LikesComponent } from './likes/likes.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { AddLocationComponent } from './add-location/add-location.component';
+import { LocationStepOneComponent } from './location-step-one/location-step-one.component';
+import { LocationStepTwoComponent } from './location-step-two/location-step-two.component';
+import { LocationStepThreeComponent } from './location-step-three/location-step-three.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,11 @@ import { ProfileComponent } from './profile/profile.component';
     MatchesComponent,
     LikesComponent,
     ProfileComponent,
+    NavbarAdminComponent,
+    AddLocationComponent,
+    LocationStepOneComponent,
+    LocationStepTwoComponent,
+    LocationStepThreeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
