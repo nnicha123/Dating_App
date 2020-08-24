@@ -13,7 +13,7 @@
           <div class="cardHead">
             <div class="personTitle"><b>{{person.first_name}}</b></div>
             <div style="display: flex;align-items: center;">
-              <i class="material-icons">favorite</i>
+              <i class="material-icons" (click)="likeUser(person.id)">favorite</i>
               <i class="material-icons" (click)="goToProfile(person.id)">person</i>
             </div>
           </div>

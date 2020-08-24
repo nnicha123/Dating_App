@@ -7,7 +7,7 @@ const orLogic = (myId, targetId) => {
   }
 }
 const getRelationship = async (req, res) => {
-  const targetId = req.params.user_id
+  const targetId = req.params.target_id
   const myId = req.user.id
   const relation = await db.relates_to.findOne({ where: orLogic(myId, targetId) })
   if (relation) {
@@ -16,6 +16,16 @@ const getRelationship = async (req, res) => {
     res.status(400).send({ message: 'Relationship not found' })
   }
 }
+const getMyExistingRelation = async (req, res) => {
+  const myId = req.user.id
+  const relationship = await db.relates_to.findAll({ where: { [Op.or]: [{ requester_id: myId }, { responder_id: myId },], } })
+  if (relationship) {
+    res.status(200).send(relationship)
+  } else {
+    res.status(400).send({ message: 'Cannot find any likes' })
+  }
+}
+
 const likeUser = async (req, res) => {
   const targetId = req.params.user_id
   const myId = req.user.id
@@ -59,4 +69,4 @@ const deletePerson = async (req, res) => {
     res.status(200).send({ message: 'Deleted match' })
   } else res.status(400).send({ message: 'Cannot delete match' })
 }
-module.exports = { getRelationship, likeUser, likeBack, declineMatch, deletePerson }
+module.exports = { getMyExistingRelation, getRelationship, likeUser, likeBack, declineMatch, deletePerson }

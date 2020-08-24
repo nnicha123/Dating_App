@@ -36,4 +36,16 @@ export class TaskService {
     console.log(id);
     return this.webReqService.put(`user/${id}`, { user_type: 'starred' });
   }
+  likeUser(targetId: any) {
+    return this.webReqService.post(`relates-to/${targetId}`, {});
+  }
+  matchUser(targetId: any) {
+    return this.webReqService.put(`relates-to/accept/${targetId}`, {});
+  }
+  getMyRelations() {
+    return this.webReqService.get('relates-to/myRelation');
+  }
+  getRelation(id: number) {
+    return this.webReqService.get(`relates-to/getRelation/${id}`);
+  }
 }

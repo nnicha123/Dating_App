@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class ProfileComponent implements OnInit {
   profile: any;
   userId: number;
+  statusDisplay: string = 'Like';
   @Input() receivedUserId: number;
   constructor(
     private taskService: TaskService,
@@ -23,6 +24,19 @@ export class ProfileComponent implements OnInit {
         this.taskService.getProfile(params.userId).subscribe((res: any) => {
           this.profile = res;
           this.userId = params.userId;
+          this.taskService.getRelation(this.userId).subscribe((res: any) => {
+            console.log(res.relation);
+            if (res.relation == 'pending' && res.responder_id == this.userId) {
+              this.statusDisplay = 'Liked';
+            } else if (
+              res.relation == 'pending' &&
+              res.requester_id == this.userId
+            ) {
+              this.statusDisplay = 'Like Back';
+            } else if (res.relation == 'match') {
+              this.statusDisplay = 'Matched';
+            }
+          });
         });
       }
     });

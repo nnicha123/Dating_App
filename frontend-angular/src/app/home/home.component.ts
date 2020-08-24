@@ -22,9 +22,13 @@ export class HomeComponent implements OnInit {
     });
   }
   goToProfile(id: number) {
-    // this.showProfile = true;
-    // console.log(id);
     this.router.navigate([`profile/${id}`]);
     this.selectedUserId = id;
+  }
+  likeUser(id: number) {
+    console.log(id);
+    this.taskService.likeUser(id).subscribe((res: any) => {
+      this.router.navigate([`likes`]);
+    });
   }
 }

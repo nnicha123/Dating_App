@@ -1,7 +1,7 @@
 <app-navbar-user></app-navbar-user>
 <div class="outerLogin">
   <div class="heading">
-    <h2>Your Likes</h2>
+    <h2>Like Back!</h2>
   </div>
   <div class="personDiv">
     <div class="personCard" *ngFor="let person of likes">
@@ -12,8 +12,28 @@
         <div class="cardHead">
           <div class="personTitle"><b>{{person.first_name}}</b></div>
           <div style="display: flex;align-items: center;">
-            <i class="material-icons" style="font-size: 20px;margin-left: 5px;color:#54142c">favorite</i>
-            <i class="material-icons" style="font-size: 20px;margin-left: 5px;color:#54142c">person</i>
+            <i class="material-icons" (click)="matchPerson(person.id)">favorite</i>
+            <i class="material-icons" (click)="goToProfile(person.id)">person</i>
+          </div>
+        </div>
+        <div class="personContent">{{person.about_me.substring(0,20)}}...</div>
+      </div>
+    </div>
+  </div>
+  <div class="heading" style="margin-top: 30px;">
+    <h2>Your Likes</h2>
+  </div>
+  <div class="personDiv">
+    <div class="personCard" *ngFor="let person of myLikes">
+      <div class="cardTop">
+        <img [src]="person.profile_pic" alt="image">
+      </div>
+      <div class="cardContent">
+        <div class="cardHead">
+          <div class="personTitle"><b>{{person.first_name}}</b></div>
+          <div style="display: flex;align-items: center;">
+            <i class="material-icons" (click)="matchPerson(person.id)">favorite</i>
+            <i class="material-icons" (click)="goToProfile(person.id)">person</i>
           </div>
         </div>
         <div class="personContent">{{person.about_me.substring(0,20)}}...</div>
