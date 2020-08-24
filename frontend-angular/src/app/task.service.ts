@@ -23,4 +23,17 @@ export class TaskService {
   getUserId() {
     return this.webReqService.get('user/profile');
   }
+  getProfile(id: number) {
+    return this.webReqService.get(`user/profile/${id}`);
+  }
+  changeProfilePic(id: any, item: string) {
+    return this.webReqService.put(`user/${id}`, { profile_pic: item });
+  }
+  changeAbout(id: any, item: string) {
+    return this.webReqService.put(`user/${id}`, { about_me: item });
+  }
+  updateToSuper(id: any) {
+    console.log(id);
+    return this.webReqService.put(`user/${id}`, { user_type: 'starred' });
+  }
 }

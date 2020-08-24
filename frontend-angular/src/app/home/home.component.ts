@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,12 +9,22 @@ import { User } from '../models/user.model';
 })
 export class HomeComponent implements OnInit {
   users: User[];
-  constructor(private taskService: TaskService) {}
+  selectedUserId: number;
+  showProfile: boolean;
+  constructor(private taskService: TaskService, private router: Router) {}
 
   ngOnInit(): void {
+    this.showProfile = false;
     this.taskService.getAllUsers().subscribe((res: any) => {
       this.users = res;
+      this.showProfile = false;
       console.log(res);
     });
+  }
+  goToProfile(id: number) {
+    // this.showProfile = true;
+    // console.log(id);
+    this.router.navigate([`profile/${id}`]);
+    this.selectedUserId = id;
   }
 }

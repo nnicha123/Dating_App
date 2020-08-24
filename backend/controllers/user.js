@@ -14,6 +14,14 @@ const getUserId = async (req, res) => {
     res.status(200).send(targetUser)
   }
 }
+const getOtherUser = async(req,res) => {
+  const targetUser = await db.user.findOne({ where: { id: req.params.id } })
+  if (!targetUser) {
+    res.status(400).send({ message: 'Cannot find target user' })
+  } else {
+    res.status(200).send(targetUser)
+  }
+}
 
 const registerUser = async (req, res) => {
   const { username, password, email, first_name, last_name, profile_pic, cover_pic, about_me, total_hearts } = req.body
@@ -62,4 +70,4 @@ const updateUser = async (req, res) => {
   }
 }
 
-module.exports = { registerUser, loginUser, getAllUser, getUserId, updateUser }
+module.exports = { registerUser, loginUser, getAllUser, getUserId, updateUser,getOtherUser }

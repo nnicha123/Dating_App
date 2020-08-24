@@ -19,6 +19,7 @@ import { SuperUsersComponent } from './super-users/super-users.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { MatchesComponent } from './matches/matches.component';
 import { LikesComponent } from './likes/likes.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LikesComponent } from './likes/likes.component';
     MyProfileComponent,
     MatchesComponent,
     LikesComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
