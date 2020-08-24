@@ -1,8 +1,14 @@
 <div class="form">
-  <h2>Step 3</h2>
-  <h2>Please try again or contact customer service</h2>
+  <h2>Step 3 Confirm</h2>
+  <div style="display: flex;flex-direction: column;align-items: flex-start;" class="formConfirm">
+    <p>Venue : {{venue}}</p>
+    <p>Location Name : {{location.name}}</p>
+    <p>Location Image : {{location.image}}</p>
+    <p>Location Price : {{location.price}}</p>
+    <p>Location Address : {{location.address}}</p>
+  </div>
   <div style="display: flex;justify-content: space-between;width:40%">
-    <button>Previous</button>
-    <button>Confirm</button>
+    <button (click)="valueDecrement()">Previous</button>
+    <button (click)="valueChanged(venue,location)">Confirm</button>
   </div>
 </div>

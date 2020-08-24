@@ -1,5 +1,5 @@
 .form {
-  text-align: center;
+  /* text-align: center; */
   height: 250px;
   width: 400px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
@@ -15,7 +15,10 @@
 .form h1 {
   margin: 30px;
 }
-
+.formConfirm p {
+  margin: 5px;
+  padding: 0;
+}
 button {
   background-color: #54142c;
   color: #eeeeee;

@@ -1,13 +1,13 @@
 .form {
-  text-align: center;
-  height: 250px;
+  /* text-align: center; */
+  height: max-content;
   width: 400px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   padding: 30px;
-  padding-top: 50px;
+  margin: 50px 0;
   border-radius: 20px;
   border: 10px solid #54142c;
   background-color: rgb(255, 255, 255);
@@ -26,4 +26,25 @@ button {
 }
 .contact-group {
   text-align: center;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.shorterGroup {
+  display: flex;
+  justify-content: space-between;
+}
+.form-group input {
+  border: none;
+  background-color: rgb(207, 205, 205);
+  height: 30px;
+  outline: none;
+}
+.form-group textarea {
+  border: none;
+  background-color: rgb(207, 205, 205);
+  outline: none;
+  height: 60px;
 }

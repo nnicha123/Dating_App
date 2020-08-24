@@ -25,6 +25,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
 import { LocationStepOneComponent } from './location-step-one/location-step-one.component';
 import { LocationStepTwoComponent } from './location-step-two/location-step-two.component';
 import { LocationStepThreeComponent } from './location-step-three/location-step-three.component';
+import { LocationSuccessComponent } from './location-success/location-success.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { LocationStepThreeComponent } from './location-step-three/location-step-
     LocationStepOneComponent,
     LocationStepTwoComponent,
     LocationStepThreeComponent,
+    LocationSuccessComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [

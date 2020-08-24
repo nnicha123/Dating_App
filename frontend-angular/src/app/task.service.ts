@@ -59,4 +59,15 @@ export class TaskService {
   getComments(targetId: number) {
     return this.webReqService.get(`profile-comment/receiver/${targetId}`);
   }
+  createVenue(category: string) {
+    return this.webReqService.post('venue', { category });
+  }
+  createLocation(location: any, venueId: number) {
+    return this.webReqService.post(`location/venue/${venueId}`, {
+      name: location.name,
+      image: location.image,
+      price: location.price,
+      address: location.address,
+    });
+  }
 }

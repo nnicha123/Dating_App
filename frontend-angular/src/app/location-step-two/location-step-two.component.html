@@ -1,8 +1,25 @@
 <div class="form">
   <h2>Step 2</h2>
-  <h2>Please try again or contact customer service</h2>
-  <div style="display: flex;justify-content: space-between;width:40%">
-    <button>Previous</button>
-    <button>Next</button>
+  <div class="form-group">
+    <label for="locationName">Enter Location Name</label>
+    <input type="text" #nameInput [value]="location.name">
+  </div>
+  <div class="shorterGroup">
+    <div class="form-group">
+      <label for="locationName">Location Image</label>
+      <input type="text" #imageInput [value]="location.image">
+    </div>
+    <div class="form-group">
+      <label for="locationName">Price</label>
+      <input type="text" #priceInput [value]="location.price">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <textarea type="text" #addressInput [value]="location.address"></textarea>
+  </div>
+  <div style="display: flex;justify-content: center;width:100%">
+    <button (click)="valueDecrement()">Previous</button>
+    <button (click)="valueChanged(nameInput.value,imageInput.value,priceInput.value,addressInput.value)">Next</button>
   </div>
 </div>

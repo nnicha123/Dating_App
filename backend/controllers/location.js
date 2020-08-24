@@ -13,8 +13,8 @@ const getLocationByVenueId = async (req, res) => {
   }
 }
 const addLocation = async (req, res) => {
-  const { address, price, image } = req.body
-  const newLocation = await db.location.create({ address, price, image, venue_id: req.params.venue_id })
+  const { name, address, price, image } = req.body
+  const newLocation = await db.location.create({ name, address, price, image, venue_id: req.params.venue_id })
   res.status(201).send(newLocation)
 }
 const updateLocation = async (req, res) => {

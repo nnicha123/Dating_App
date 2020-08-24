@@ -1,7 +1,12 @@
 <app-navbar-admin></app-navbar-admin>
 <div class="outerLogin">
-  <app-location-step-one *ngIf="pages[0]"></app-location-step-one>
-  <app-location-step-two *ngIf="pages[1]"></app-location-step-two>
-  <app-location-step-three *ngIf="pages[2]"></app-location-step-three>
+  <app-location-step-one *ngIf="pages[0]" (valueChange)='displayCounter($event)' (venueChange)='displayVenue($event)'>
+  </app-location-step-one>
+  <app-location-step-two *ngIf="pages[1]" (valueChange)='displayCounter($event)'
+    (locationChange)='displayLocation($event)'></app-location-step-two>
+  <app-location-step-three *ngIf="pages[2]" (valueChange)='displayCounter($event)' [venue]="venue"
+    [location]="location">
+  </app-location-step-three>
+  <app-location-success *ngIf="pages[3]" (valueChange)='displayCounter($event)'></app-location-success>
 </div>
 <app-footer></app-footer>

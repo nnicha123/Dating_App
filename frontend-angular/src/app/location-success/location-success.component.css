@@ -1,11 +1,11 @@
 .form {
-  /* text-align: center; */
+  text-align: center;
   height: 250px;
   width: 400px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   padding: 30px;
   padding-top: 50px;
   border-radius: 20px;
@@ -15,10 +15,7 @@
 .form h1 {
   margin: 30px;
 }
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
+
 button {
   background-color: #54142c;
   color: #eeeeee;

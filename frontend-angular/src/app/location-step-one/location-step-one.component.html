@@ -1,8 +1,10 @@
 <div class="form">
-  <h2>Step 1</h2>
-  <h2>Please try again or contact customer service</h2>
-  <div style="display: flex;justify-content: space-between;width:40%">
-    <button>Previous</button>
-    <button>Next</button>
+  <h2>Step 1 Select Venue</h2>
+  <div class="form-group">
+    <label for="venue">Add Venue</label>
+    <input type="text" #venueInput [value]="venue">
+  </div>
+  <div style="display: flex;justify-content: center;width:100%">
+    <button (click)="valueChanged(venueInput.value)">Next</button>
   </div>
 </div>
