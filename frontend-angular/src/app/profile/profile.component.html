@@ -48,24 +48,37 @@
           <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
         </div>
       </div>
-      <div class="feedback">
+      <div class="feedback" *ngFor="let comment of comments">
         <div class="comment">
-          Comment..
+          {{comment.comment}}
         </div>
-        <div class="hearts" style="display: flex;">
-          <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
-          <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
+        <div class="hearts" style="display: flex;align-items: center;">
+          <div><b>{{comment.no_of_likes}}</b></div>
           <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
         </div>
       </div>
-      <div class="feedback">
+      <div class="feedbackLarge">
         <div class="comment">
-          Comment..
+          <textarea style="width:350px;height:80px;border: none;" #comment>Add Comment</textarea>
         </div>
-        <div class="hearts" style="display: flex;">
-          <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
-          <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
+        <div style="height:80px;display:flex;flex-direction:column;justify-content:space-between">
+          <div class="hearts" style="display: flex;">
+            <select class="ratingInput" name="rating" style="border: none;" #heartNumber>
+              <option value="">Give Hearts</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
+            <i class="material-icons" style="font-size: 30px;color:#54142c ;">favorite</i>
+          </div>
+          <div style="text-align: right;">
+            <button (click)="submitFeedback(comment.value,heartNumber.value,profile.id)">Submit</button>
+          </div>
         </div>
+
       </div>
       <div style="text-align:right;margin-top: 20px;">
         <button (click)="toHome()">Back

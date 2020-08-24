@@ -15,7 +15,7 @@ export class WebRequestService {
   }
   post(uri: string, item: Object) {
     if (localStorage.getItem('TOKEN')) {
-      console.log('TOKEN available');
+      // console.log('TOKEN available');
       return this.http.post(`${this.ROOT_URL}/${uri}`, item);
     } else {
       return this.http.post(`${this.ROOT_URL}/${uri}`, item);

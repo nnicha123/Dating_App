@@ -1,21 +1,21 @@
 const db = require('../models')
 
 const getAllComments = async (req, res) => {
-  const allComments = await db.comment.findAll({})
+  const allComments = await db.profile_comment.findAll({})
   res.status(200).send(allComments)
 }
 const getCommentsToUser = async (req, res) => {
-  const comments = await db.comment.findAll({ where: { receiver_id: req.params.receiver_id } })
+  const comments = await db.profile_comment.findAll({ where: { receiver_id: req.params.receiver_id } })
   res.status(200).send(comments)
 }
 const addCommentsToUser = async (req, res) => {
   const { comment, date, image, no_of_likes } = req.body
-  const newComment = await db.comment.create({ comment, date, image, no_of_likes, commenter_id: req.params.commenter_id, receiver_id: req.params.receiver_id })
+  const newComment = await db.profile_comment.create({ comment, date, image, no_of_likes, commenter_id: req.user.id, receiver_id: req.params.receiver_id })
   res.status(201).send(newComment)
 }
 const updateComment = async (req, res) => {
   const { comment, date, image, no_of_likes } = req.body
-  const targetComment = await db.comment.findOne({ where: { commenter_id: req.params.commenter_id, receiver_id: req.params.receiver_id } })
+  const targetComment = await db.profile_comment.findOne({ where: { commenter_id: req.params.commenter_id, receiver_id: req.params.receiver_id } })
   if (!targetComment) {
     res.status(400).send({ message: 'Cannot find target comment' })
   } else {
@@ -24,7 +24,7 @@ const updateComment = async (req, res) => {
   }
 }
 const deleteComment = async (req, res) => {
-  const targetComment = await db.comment.findOne({ where: { commenter_id: req.params.commenter_id, receiver_id: req.params.receiver_id } })
+  const targetComment = await db.profile_comment.findOne({ where: { commenter_id: req.params.commenter_id, receiver_id: req.params.receiver_id } })
   if (!targetComment) {
     res.status(400).send({ message: 'Cannot find target comment' })
   } else {

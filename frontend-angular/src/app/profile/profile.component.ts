@@ -11,6 +11,7 @@ export class ProfileComponent implements OnInit {
   profile: any;
   userId: number;
   statusDisplay: string = 'Like';
+  comments: object[];
   @Input() receivedUserId: number;
   constructor(
     private taskService: TaskService,
@@ -38,10 +39,27 @@ export class ProfileComponent implements OnInit {
             }
           });
         });
+        let newCommentData = [];
+        this.taskService.getComments(params.userId).subscribe((res: any) => {
+          newCommentData = res;
+          console.log(res);
+          this.comments = res;
+        });
       }
     });
   }
   toHome() {
     this.router.navigate(['home']);
+  }
+  submitFeedback(comment: string, heart: number, targetId: number) {
+    console.log(comment, heart, targetId);
+    this.taskService.getProfile(targetId).subscribe((res: any) => {
+      console.log(res.profile_pic);
+      this.taskService
+        .addComment(comment, heart, targetId, res.profile_pic)
+        .subscribe((res: any) => {
+          // window.location.reload();
+        });
+    });
   }
 }
