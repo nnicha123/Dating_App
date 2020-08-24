@@ -11,20 +11,41 @@ export class LocationStepThreeComponent implements OnInit {
   counter = 0;
   @Input() venue: string;
   @Input() location: { name; image; price; address };
+  @Input() exists: boolean;
+  oldVenueId: any;
+  oldVenues: any;
   constructor(private taskService: TaskService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.exists) {
+      this.taskService.getVenues().subscribe((res: any) => {
+        console.log(res);
+        this.oldVenues = res.filter((el) => el.category == this.venue);
+        // console.log(this.oldVenues);
+        this.oldVenueId = this.oldVenues[0].id;
+        console.log(this.oldVenueId);
+      });
+    }
+  }
   valueChanged(venue: string, location: object) {
     this.counter = this.counter + 1;
     this.valueChange.emit(this.counter);
-    this.taskService.createVenue(venue).subscribe((res: any) => {
-      console.log(res);
+    if (!this.exists) {
+      this.taskService.createVenue(venue).subscribe((res: any) => {
+        console.log(res);
+        this.taskService
+          .createLocation(location, res.id)
+          .subscribe((res: any) => {
+            console.log(res);
+          });
+      });
+    } else {
       this.taskService
-        .createLocation(location, res.id)
+        .createLocation(location, this.oldVenueId)
         .subscribe((res: any) => {
           console.log(res);
         });
-    });
+    }
   }
   valueDecrement() {
     this.counter = this.counter - 1;

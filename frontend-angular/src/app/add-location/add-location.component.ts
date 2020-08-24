@@ -10,6 +10,7 @@ export class AddLocationComponent implements OnInit {
   originalCounter: number = 0;
   venue: string = '';
   location: object;
+  exists: boolean;
   // locationName: string = '';
   // locationImage: string = '';
   // price: string = '';
@@ -33,5 +34,9 @@ export class AddLocationComponent implements OnInit {
   displayLocation(location: object) {
     console.log(location);
     this.location = location;
+  }
+  displayExists(exists: boolean) {
+    console.log(exists);
+    this.exists = exists;
   }
 }

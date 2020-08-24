@@ -70,4 +70,7 @@ export class TaskService {
       address: location.address,
     });
   }
+  getVenues() {
+    return this.webReqService.get('venue');
+  }
 }

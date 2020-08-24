@@ -1,10 +1,28 @@
 <div class="form">
   <h2>Step 1 Select Venue</h2>
-  <div class="form-group">
-    <label for="venue">Add Venue</label>
-    <input type="text" #venueInput [value]="venue">
+  <div *ngIf="addVenue == false">
+    <div class="form-group">
+      <label for="existingVenue">Select from existing venues</label>
+      <!-- <input type="text" #venueInput [value]="existingVenue"> -->
+      <select name="selectVenue" #existingVenueInput [value]="selectFromExistingVenue">
+        <option *ngFor="let oldVenue of oldVenues;let i = index" [value]="oldVenue">{{oldVenue}}</option>
+      </select>
+      <button (click)="addVenue = true">Add Venue</button>
+    </div>
+    <div style="display: flex;justify-content: center;width:100%">
+      <button (click)="valueChanged(existingVenueInput.value,true)">Next</button>
+    </div>
   </div>
-  <div style="display: flex;justify-content: center;width:100%">
-    <button (click)="valueChanged(venueInput.value)">Next</button>
+
+  <div *ngIf="addVenue == true">
+    <div class="form-group">
+      <label for="venue">Add Venue</label>
+      <input type="text" #venueInput [value]="venue">
+    </div>
+
+    <div style="display: flex;justify-content: center;width:100%">
+      <button (click)="valueChanged(venueInput.value,false)">Next</button>
+    </div>
   </div>
+
 </div>
