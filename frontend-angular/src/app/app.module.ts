@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { MaterialModule } from './material.module';
+import { FormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+
+// import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule }
+// from '@angular/material/';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +36,7 @@ import { DateInviteComponent } from './date-invite/date-invite.component';
 import { InviteStepOneComponent } from './invite-step-one/invite-step-one.component';
 import { InviteStepTwoComponent } from './invite-step-two/invite-step-two.component';
 import { InviteStepThreeComponent } from './invite-step-three/invite-step-three.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -59,7 +66,15 @@ import { InviteStepThreeComponent } from './invite-step-three/invite-step-three.
     InviteStepTwoComponent,
     InviteStepThreeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    MatSliderModule,
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],

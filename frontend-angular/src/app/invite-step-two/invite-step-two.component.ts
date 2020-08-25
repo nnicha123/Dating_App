@@ -7,8 +7,11 @@ import { TaskService } from '../task.service';
   styleUrls: ['./invite-step-two.component.css'],
 })
 export class InviteStepTwoComponent implements OnInit {
-  oldVenues: object[];
-
+  oldVenues: any[];
+  selectedVenue: any;
+  selectedVenueId: any;
+  selectedLocations: any[];
+  selected: boolean[];
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
@@ -16,9 +19,28 @@ export class InviteStepTwoComponent implements OnInit {
     this.taskService.getVenues().subscribe((res: any) => {
       console.log(res);
       for (let i = 0; i < res.length; i++) {
-        venuesOld.push(res[i].category);
+        console.log(res[i]);
+        venuesOld.push(res[i]);
       }
       this.oldVenues = venuesOld;
     });
+  }
+  onChange(selectedVenue: number) {
+    this.selectedVenueId = selectedVenue;
+    this.taskService
+      .getLocations(this.selectedVenueId)
+      .subscribe((res: any) => {
+        this.selectedLocations = res;
+        console.log(res);
+        let selectArr = [];
+        for (let i = 0; i < res.length; i++) {
+          selectArr.push(false);
+        }
+        this.selected = selectArr;
+      });
+  }
+  selectedDestination(selected, i) {
+    console.log(selected, i);
+    this.selected[i] = !this.selected[i];
   }
 }

@@ -4,12 +4,28 @@
     <div class="form-group">
       <label for="existingVenue">Select from existing venues</label>
       <!-- <input type="text" #venueInput [value]="existingVenue"> -->
-      <select name="selectVenue" #existingVenueInput [value]="selectFromExistingVenue">
-        <option *ngFor="let oldVenue of oldVenues;let i = index" [value]="oldVenue">{{oldVenue}}</option>
+      <select name="selectVenue" #existingVenueInput (change)="onChange($event.target.value)">
+        <option *ngFor="let oldVenue of oldVenues;let i = index" [value]="oldVenue.id">{{oldVenue.category}}
+        </option>
       </select>
     </div>
+    <div class="form-group">
+      <label style="margin: 10px 0;">Locations for this Venue</label>
+      <div class="locationsPerVenue">
+        <div class="locationCard" *ngFor="let location of selectedLocations;let indexOfelement=index"
+          (click)="selectedDestination(location,indexOfelement)" [ngClass]="{'green':selected[indexOfelement]}">
+          <div class="locationImage">
+            <img [src]="location.image" alt="">
+          </div>
+          <div class="description"><b>{{location.name}}</b></div>
+          <div class="description"><b>${{location.price}}</b></div>
+          <div class="description">{{location.address}}</div>
+        </div>
+      </div>
+    </div>
     <div style="display: flex;justify-content: center;width:100%">
-      <button (click)="valueChanged(existingVenueInput.value,true)">Next</button>
+      <button>Prev</button>
+      <button>Next</button>
     </div>
   </div>
 </div>

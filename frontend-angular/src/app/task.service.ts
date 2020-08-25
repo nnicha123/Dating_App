@@ -73,4 +73,7 @@ export class TaskService {
   getVenues() {
     return this.webReqService.get('venue');
   }
+  getLocations(venueId: number) {
+    return this.webReqService.get(`location/venue/${venueId}`);
+  }
 }
