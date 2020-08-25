@@ -26,6 +26,10 @@ import { LocationStepOneComponent } from './location-step-one/location-step-one.
 import { LocationStepTwoComponent } from './location-step-two/location-step-two.component';
 import { LocationStepThreeComponent } from './location-step-three/location-step-three.component';
 import { LocationSuccessComponent } from './location-success/location-success.component';
+import { DateInviteComponent } from './date-invite/date-invite.component';
+import { InviteStepOneComponent } from './invite-step-one/invite-step-one.component';
+import { InviteStepTwoComponent } from './invite-step-two/invite-step-two.component';
+import { InviteStepThreeComponent } from './invite-step-three/invite-step-three.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { LocationSuccessComponent } from './location-success/location-success.co
     LocationStepTwoComponent,
     LocationStepThreeComponent,
     LocationSuccessComponent,
+    DateInviteComponent,
+    InviteStepOneComponent,
+    InviteStepTwoComponent,
+    InviteStepThreeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [

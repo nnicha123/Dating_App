@@ -12,6 +12,7 @@ import { MatchesComponent } from './matches/matches.component';
 import { LikesComponent } from './likes/likes.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { DateInviteComponent } from './date-invite/date-invite.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'likes', component: LikesComponent },
   { path: 'profile/:userId', component: ProfileComponent },
   { path: 'add-location', component: AddLocationComponent },
+  { path: 'date-invite', component: DateInviteComponent },
 ];
 
 @NgModule({

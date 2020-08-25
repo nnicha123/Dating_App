@@ -1,0 +1,15 @@
+<div class="form">
+  <h2>Step 2 Select Venue</h2>
+  <div>
+    <div class="form-group">
+      <label for="existingVenue">Select from existing venues</label>
+      <!-- <input type="text" #venueInput [value]="existingVenue"> -->
+      <select name="selectVenue" #existingVenueInput [value]="selectFromExistingVenue">
+        <option *ngFor="let oldVenue of oldVenues;let i = index" [value]="oldVenue">{{oldVenue}}</option>
+      </select>
+    </div>
+    <div style="display: flex;justify-content: center;width:100%">
+      <button (click)="valueChanged(existingVenueInput.value,true)">Next</button>
+    </div>
+  </div>
+</div>

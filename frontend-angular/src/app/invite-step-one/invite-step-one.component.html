@@ -1,0 +1,16 @@
+<div class="form">
+  <h2>Step 1 Select Venue</h2>
+  <div>
+    <mat-card>
+      <mat-form-field>
+        <!-- <label for="myDatePicker">Select date preference</label> -->
+        <input matInput [matDatepicker]="myDatePicker" placeholder="Choose a date">
+        <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #myDatePicker></mat-datepicker>
+      </mat-form-field>
+    </mat-card>
+    <div style="display: flex;justify-content: center;width:100%">
+      <button (click)="valueChanged(existingVenueInput.value,true)">Next</button>
+    </div>
+  </div>
+</div>
