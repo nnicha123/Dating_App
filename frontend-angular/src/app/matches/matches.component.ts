@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TaskService } from '../task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-matches',
@@ -9,7 +10,7 @@ import { TaskService } from '../task.service';
 export class MatchesComponent implements OnInit {
   matches: object[];
   myId: number;
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private router: Router) {}
 
   ngOnInit(): void {
     let matchesArr = [];
@@ -34,5 +35,9 @@ export class MatchesComponent implements OnInit {
         this.matches = matchesArr;
       });
     });
+  }
+  askOnDate(personId) {
+    console.log(personId);
+    this.router.navigate([`date-invite/${personId}`]);
   }
 }

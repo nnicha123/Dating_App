@@ -14,7 +14,7 @@ const getInviteForInviter = async (req, res) => {
 }
 const addInvite = async (req, res) => {
   const { status, time, date } = req.body
-  const newInvite = await db.invite.create({ status, time, date, receives_invite: req.params.receives_invite, sends_invite: req.params.sends_invite, location_id: req.params.location_id })
+  const newInvite = await db.invite.create({ status: 'pending', time, date, receives_invite: req.params.receives_invite, sends_invite: req.user.id, location_id: req.params.location_id })
   res.status(201).send(newInvite)
 }
 const updateInvite = async (req, res) => {

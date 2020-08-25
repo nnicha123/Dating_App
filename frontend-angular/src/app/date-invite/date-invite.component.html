@@ -1,7 +1,13 @@
 <app-navbar-user></app-navbar-user>
 <div class="outerLogin">
-  <app-invite-step-one></app-invite-step-one>
-  <app-invite-step-two></app-invite-step-two>
-  <app-invite-step-three></app-invite-step-three>
+  <app-invite-step-one (valueChange)='displayCounter($event)' (dateChange)='displayDate($event)'
+    (timeChange)='displayTime($event)' *ngIf="pages[0]">
+  </app-invite-step-one>
+  <app-invite-step-two (valueChange)='displayCounter($event)' (locationChange)='displayLocation($event)'
+    *ngIf="pages[1]">
+  </app-invite-step-two>
+  <app-invite-step-three (valueChange)='displayCounter($event)' [date]="date" [time]="time" [location]="location"
+    *ngIf="pages[2]">
+  </app-invite-step-three>
 </div>
 <app-footer></app-footer>

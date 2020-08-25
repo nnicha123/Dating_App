@@ -5,7 +5,7 @@ const getAllLocations = async (req, res) => {
   res.status(200).send(allLocations)
 }
 const getLocationByVenueId = async (req, res) => {
-  const targetLocations = await db.location.findAll({ where: { venue_id: req.params.venue_id, id: req.params.location_id } })
+  const targetLocations = await db.location.findAll({ where: { venue_id: req.params.venue_id } })
   if (!targetLocations) {
     res.status(400).send({ message: 'Cannot Find target locations' })
   } else {

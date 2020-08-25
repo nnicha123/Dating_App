@@ -3,7 +3,6 @@
   <div>
     <div class="form-group">
       <label for="existingVenue">Select from existing venues</label>
-      <!-- <input type="text" #venueInput [value]="existingVenue"> -->
       <select name="selectVenue" #existingVenueInput (change)="onChange($event.target.value)">
         <option *ngFor="let oldVenue of oldVenues;let i = index" [value]="oldVenue.id">{{oldVenue.category}}
         </option>
@@ -24,8 +23,8 @@
       </div>
     </div>
     <div style="display: flex;justify-content: center;width:100%">
-      <button>Prev</button>
-      <button>Next</button>
+      <button (click)="valueDecrement()">Prev</button>
+      <button (click)="valueChanged()">Next</button>
     </div>
   </div>
 </div>

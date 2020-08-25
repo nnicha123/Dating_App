@@ -76,4 +76,10 @@ export class TaskService {
   getLocations(venueId: number) {
     return this.webReqService.get(`location/venue/${venueId}`);
   }
+  inviteDate(date, time, locationId, personId) {
+    return this.webReqService.post(
+      `invite/receives_invite/${personId}/location/${locationId}`,
+      { date, time }
+    );
+  }
 }

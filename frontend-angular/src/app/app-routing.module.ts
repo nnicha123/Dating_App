@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'likes', component: LikesComponent },
   { path: 'profile/:userId', component: ProfileComponent },
   { path: 'add-location', component: AddLocationComponent },
-  { path: 'date-invite', component: DateInviteComponent },
+  { path: 'date-invite/:personId', component: DateInviteComponent },
 ];
 
 @NgModule({

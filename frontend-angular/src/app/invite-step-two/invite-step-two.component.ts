@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -12,6 +12,11 @@ export class InviteStepTwoComponent implements OnInit {
   selectedVenueId: any;
   selectedLocations: any[];
   selected: boolean[];
+  location: object;
+  counter = 0;
+  @Output() locationChange = new EventEmitter();
+  @Output() valueChange = new EventEmitter();
+
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
@@ -24,6 +29,11 @@ export class InviteStepTwoComponent implements OnInit {
       }
       this.oldVenues = venuesOld;
     });
+  }
+  valueChanged() {
+    this.counter = this.counter + 1;
+    this.valueChange.emit(this.counter);
+    // console.log(this.location);
   }
   onChange(selectedVenue: number) {
     this.selectedVenueId = selectedVenue;
@@ -39,8 +49,15 @@ export class InviteStepTwoComponent implements OnInit {
         this.selected = selectArr;
       });
   }
+  valueDecrement() {
+    this.counter = this.counter - 1;
+    this.valueChange.emit(this.counter);
+  }
   selectedDestination(selected, i) {
     console.log(selected, i);
     this.selected[i] = !this.selected[i];
+    this.location = selected;
+    // console.log(this.location);
+    this.locationChange.emit(this.location);
   }
 }
