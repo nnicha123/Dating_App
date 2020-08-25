@@ -5,6 +5,7 @@ const locationController = require('../controllers/location')
 
 const auth = passport.authenticate("jwt", { session: false })
 
+router.get('/:id', auth, locationController.getSingleLocation)
 router.get('/', auth, locationController.getAllLocations)
 router.get('/venue/:venue_id', auth, locationController.getLocationByVenueId)
 router.post('/venue/:venue_id', auth, locationController.addLocation)

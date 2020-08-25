@@ -1,15 +1,20 @@
 const db = require('../models')
+const { Op } = require('sequelize')
 
 const getAllInvites = async (req, res) => {
   const allInvites = await db.invite.findAll({})
   res.status(200).send(allInvites)
 }
+const getAllInvitesForUser = async (req, res) => {
+  const userInvites = await db.invite.findAll({ where: { [Op.or]: [{ receives_invite: req.user.id }, { sends_invite: req.user.id }] } })
+  res.status(200).send(userInvites)
+}
 const getInviteForReceiver = async (req, res) => {
-  const receiverInvites = await db.invite.findAll({ where: { receives_invite: req.params.receives_invite } })
+  const receiverInvites = await db.invite.findAll({ where: { receives_invite: req.user.id } })
   res.status(200).send(receiverInvites)
 }
 const getInviteForInviter = async (req, res) => {
-  const inviterInvites = await db.invite.findAll({ where: { sends_invite: req.params.sends_invite } })
+  const inviterInvites = await db.invite.findAll({ where: { sends_invite: req.user.id } })
   res.status(200).send(inviterInvites)
 }
 const addInvite = async (req, res) => {
@@ -37,4 +42,4 @@ const deleteInvite = async (req, res) => {
   }
 }
 
-module.exports = { getAllInvites, getInviteForInviter, getInviteForReceiver, addInvite, updateInvite, deleteInvite }
+module.exports = { getAllInvitesForUser, getAllInvites, getInviteForInviter, getInviteForReceiver, addInvite, updateInvite, deleteInvite }

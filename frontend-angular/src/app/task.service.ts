@@ -82,4 +82,16 @@ export class TaskService {
       { date, time }
     );
   }
+  getDatesForUser() {
+    return this.webReqService.get(`invite/sends_invite`);
+  }
+  getUserInvited() {
+    return this.webReqService.get(`invite/receives_invite`);
+  }
+  getSingleLocation(location_id: number) {
+    return this.webReqService.get(`location/${location_id}`);
+  }
+  getMyInvites() {
+    return this.webReqService.get('invite/user');
+  }
 }

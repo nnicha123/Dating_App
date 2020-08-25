@@ -1,0 +1,52 @@
+<app-navbar-user></app-navbar-user>
+<div class="outerLogin">
+  <div class="date">
+    <h2>Your Confirmed Dates</h2>
+    <div class="dateCard" *ngFor="let person of personsConfirmed;let indexOfelement=index">
+      <div class=" personImg">
+        <img [src]="person.profile_pic" alt="">
+      </div>
+      <div>{{person.first_name}}</div>
+      <div>{{locationsConfirmed[indexOfelement].name}}</div>
+      <div>{{datesConfirmed[indexOfelement].date}}, {{datesConfirmed[indexOfelement].time}}</div>
+      <div>{{datesConfirmed[indexOfelement].status}}</div>
+      <div class="options">
+        <i class="material-icons">favorite</i>
+        <i class="material-icons" style="margin-left:10px">delete</i>
+      </div>
+    </div>
+  </div>
+  <div class="date">
+    <h2>Sent Requests</h2>
+    <div class="dateCard" *ngFor="let person of persons;let indexOfelement=index">
+      <div class=" personImg">
+        <img [src]="person.profile_pic" alt="">
+      </div>
+      <div>{{person.first_name}}</div>
+      <div>{{locations[indexOfelement].name}}</div>
+      <div>{{dates[indexOfelement].date}}, {{dates[indexOfelement].time}}</div>
+      <div>{{dates[indexOfelement].status}}</div>
+      <div class="options">
+        <i class="material-icons">favorite</i>
+        <i class="material-icons" style="margin-left:10px">delete</i>
+      </div>
+    </div>
+  </div>
+  <div class="date">
+    <h2>Received Requests</h2>
+    <div class="dateCard" *ngFor="let person of personsReceived;let indexOfelement=index">
+      <div class=" personImg">
+        <img [src]="person.profile_pic" alt="">
+      </div>
+      <div>{{person.first_name}}</div>
+      <div>{{locationsReceived[indexOfelement].name}}</div>
+      <div>{{datesReceived[indexOfelement].date}}, {{datesReceived[indexOfelement].time}}</div>
+      <div>{{datesReceived[indexOfelement].status}}</div>
+      <div class="options">
+        <i class="material-icons">favorite</i>
+        <i class="material-icons" style="margin-left:10px">delete</i>
+      </div>
+    </div>
+
+  </div>
+</div>

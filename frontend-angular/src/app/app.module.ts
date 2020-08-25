@@ -37,6 +37,7 @@ import { InviteStepOneComponent } from './invite-step-one/invite-step-one.compon
 import { InviteStepTwoComponent } from './invite-step-two/invite-step-two.component';
 import { InviteStepThreeComponent } from './invite-step-three/invite-step-three.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatesComponent } from './dates/dates.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InviteStepOneComponent,
     InviteStepTwoComponent,
     InviteStepThreeComponent,
+    DatesComponent,
   ],
   imports: [
     BrowserModule,

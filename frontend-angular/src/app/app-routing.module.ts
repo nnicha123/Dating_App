@@ -13,6 +13,7 @@ import { LikesComponent } from './likes/likes.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { DateInviteComponent } from './date-invite/date-invite.component';
+import { DatesComponent } from './dates/dates.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'profile/:userId', component: ProfileComponent },
   { path: 'add-location', component: AddLocationComponent },
   { path: 'date-invite/:personId', component: DateInviteComponent },
+  { path: 'date', component: DatesComponent },
 ];
 
 @NgModule({

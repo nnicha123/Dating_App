@@ -4,6 +4,10 @@ const getAllLocations = async (req, res) => {
   const allLocations = await db.location.findAll({})
   res.status(200).send(allLocations)
 }
+const getSingleLocation = async (req, res) => {
+  const singleLoc = await db.location.findOne({ where: { id: req.params.id } })
+  res.status(200).send(singleLoc)
+}
 const getLocationByVenueId = async (req, res) => {
   const targetLocations = await db.location.findAll({ where: { venue_id: req.params.venue_id } })
   if (!targetLocations) {
@@ -37,4 +41,4 @@ const deleteLocation = async (req, res) => {
   }
 }
 
-module.exports = { getAllLocations, getLocationByVenueId, addLocation, updateLocation, deleteLocation }
+module.exports = { getSingleLocation, getAllLocations, getLocationByVenueId, addLocation, updateLocation, deleteLocation }
