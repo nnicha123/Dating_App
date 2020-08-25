@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
           this.profile = res;
           this.userId = params.userId;
           this.taskService.getRelation(this.userId).subscribe((res: any) => {
-            console.log(res.relation);
+            // console.log(res.relation);
             if (res.relation == 'pending' && res.responder_id == this.userId) {
               this.statusDisplay = 'Liked';
             } else if (
@@ -64,5 +64,20 @@ export class ProfileComponent implements OnInit {
           window.location.reload();
         });
     });
+  }
+  changeStatus() {
+    console.log(this.userId, this.statusDisplay);
+    if (this.statusDisplay == 'Like Back') {
+      this.taskService.matchUser(this.userId).subscribe((res: any) => {
+        this.router.navigate([`matches`]);
+        console.log(res);
+      });
+    }
+    if (this.statusDisplay == 'Like') {
+      console.log('Like');
+      this.taskService.likeUser(this.userId).subscribe((res: any) => {
+        this.router.navigate([`likes`]);
+      });
+    }
   }
 }

@@ -71,3 +71,15 @@
   display: flex;
   justify-content: space-between;
 }
+i {
+  color: #54142c;
+  font-size: 20px;
+  margin-left: 5px;
+  transition: all ease 0.3s;
+  transform: scale(1);
+}
+i:hover {
+  color: #6e545e;
+  cursor: pointer;
+  transform: scale(1.1);
+}

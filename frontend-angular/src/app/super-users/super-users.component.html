@@ -12,8 +12,8 @@
         <div class="cardHead">
           <div class="personTitle"><b>{{person.first_name}}</b></div>
           <div style="display: flex;align-items: center;">
-            <i class="material-icons" style="font-size: 20px;margin-left: 5px;color:#54142c">favorite</i>
-            <i class="material-icons" style="font-size: 20px;margin-left: 5px;color:#54142c">person</i>
+            <i class="material-icons" (click)="likeUser(person.id)">favorite</i>
+            <i class="material-icons" (click)="goToProfile(person.id)">person</i>
           </div>
         </div>
         <div class="personContent">{{person.about_me.substring(0,20)}}...</div>
