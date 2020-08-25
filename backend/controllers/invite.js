@@ -24,7 +24,7 @@ const addInvite = async (req, res) => {
 }
 const updateInvite = async (req, res) => {
   const { status, time, date, location_id } = req.body
-  const targetInvite = await db.invite.findOne({ where: { receives_invite: req.params.receives_invite, sends_invite: req.params.sends_invite } })
+  const targetInvite = await db.invite.findOne({ where: { receives_invite: req.user.id, sends_invite: req.params.sends_invite } })
   if (!targetInvite) {
     res.status(400).send({ message: 'Cannot find invite' })
   } else {

@@ -9,5 +9,6 @@
   <app-invite-step-three (valueChange)='displayCounter($event)' [date]="date" [time]="time" [location]="location"
     *ngIf="pages[2]">
   </app-invite-step-three>
+  <app-invite-success *ngIf="pages[3]" (valueChange)='displayCounter($event)'></app-invite-success>
 </div>
 <app-footer></app-footer>

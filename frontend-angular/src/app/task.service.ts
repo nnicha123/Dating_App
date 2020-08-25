@@ -94,4 +94,8 @@ export class TaskService {
   getMyInvites() {
     return this.webReqService.get('invite/user');
   }
+  modifyDate(person_id: number, item: any) {
+    // console.log(person_id);
+    return this.webReqService.put(`invite/sends_invite/${person_id}`, item);
+  }
 }

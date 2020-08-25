@@ -3,14 +3,14 @@
   <div>
     <div class="form-group">
       <label for="date">Select date</label>
-      <input type="text" #DateInput>
+      <input type="text" #dateInput>
     </div>
     <div class="form-group">
       <label for="time">Select Time</label>
       <input type="text" #timeInput>
     </div>
     <div style="display: flex;justify-content: center;width:100%">
-      <button (click)="valueChanged(DateInput.Value,timeInput.value)">Next</button>
+      <button (click)="valueChanged(dateInput.value,timeInput.value)">Next</button>
     </div>
   </div>
 </div>

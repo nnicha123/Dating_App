@@ -35,11 +35,11 @@
 }
 .options {
   display: flex;
-  padding-right: 10px;
+  padding-right: 40px;
 }
 i {
   color: #54142c;
-  font-size: 20px;
+  font-size: 30px;
   margin-left: 5px;
   transition: all ease 0.3s;
   transform: scale(1);

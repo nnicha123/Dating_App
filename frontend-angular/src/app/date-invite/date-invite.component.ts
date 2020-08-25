@@ -27,6 +27,7 @@ export class DateInviteComponent implements OnInit {
     this.pages[this.originalCounter] = true;
   }
   displayDate(date: string) {
+    console.log(date);
     this.date = date;
   }
   displayTime(time: string) {

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class MatchesComponent implements OnInit {
   matches: object[];
   myId: number;
+  selectedUserId: number;
   constructor(private taskService: TaskService, private router: Router) {}
 
   ngOnInit(): void {
@@ -36,8 +37,12 @@ export class MatchesComponent implements OnInit {
       });
     });
   }
-  askOnDate(personId) {
+  askOnDate(personId: number) {
     console.log(personId);
     this.router.navigate([`date-invite/${personId}`]);
+  }
+  goToProfile(id: number) {
+    this.router.navigate([`profile/${id}`]);
+    this.selectedUserId = id;
   }
 }
